@@ -13,13 +13,15 @@
 #include "zone.h"
 #include <stdlib.h>
 
+
 #if defined(unix) || defined(__unix) || defined(__APPLE__) || defined(__OpenBSD__) || defined(__NetBSD__) || defined(__QNX__) || defined(__QNXTO__)
 #include <sys/uio.h>
 #else
-struct iovec {
-    void  *iov_base;
-    size_t iov_len;
-};
+#include <sys/socket.h> //todo todo this is not correct
+//struct iovec {
+//    void  *iov_base;
+//    size_t iov_len;
+//};
 #endif
 
 #ifdef __cplusplus
